@@ -26,6 +26,14 @@ post '/visit' do
 	hh = {  :username => 'Введите имя', 
 			:phone => 'Введите телефон',
 			:datetime => 'Укажите дату и время'}
+	@error = hh.select {|key,_| params[key] == ""}.values.join(", ")
+
+		if @error != ''
+			return erb :visit
+		end
+	
+
+=begin
 	hh.each do |key, value|
 		if params[key] == ''
 			@error = hh[key]
@@ -33,7 +41,6 @@ post '/visit' do
 			return erb :visit
 		end
 	end
-=begin
 	if @username == ''
 		@error = 'Введите имя'
 		end
