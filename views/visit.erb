@@ -26,12 +26,12 @@
   </div>
   
   <div class="form-group">
-   <label for="baber">Выбор парикмахера</label>
-  <select name="baber">
-    <option value="none" selected>Выберите парикмахера...</option>
-    <option value="Петрович">Van Петрович</option>
-    <option value="Макарыч">Only Макарыч</option>
-    <option value="Федорыч">Best Федорыч</option>
+   <label for="barber">Выбор парикмахера</label>
+  <select name="barber" class="form-control">
+  
+    <option <%= @barber == 'Van Петрович' ? 'selected' : '' %>>Van Петрович</option>
+    <option <%= @barber == 'Only Макарыч' ? 'selected' : '' %>>Only Макарыч</option>
+    <option <%= @barber == 'Best Федорыч' ? 'selected' : '' %>>Best Федорыч</option>
   </select><br/>
   </div>
 
