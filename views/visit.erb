@@ -2,6 +2,7 @@
 <p>На этой странице вы сможете записаться к нам в Barber Shop</p>
 
 <script type="text/javascript">
+  
   $(function() {
      $('#color').simplecolorpicker();
      $('#datetimepicker').datetimepicker();
@@ -30,10 +31,13 @@
   <div class="form-group">
    <label for="barber">Выбор парикмахера</label>
   <select name="barber" class="form-control">
-  
-    <option <%= @barber == 'Van Петрович' ? 'selected' : '' %>>Van Петрович</option>
-    <option <%= @barber == 'Only Макарыч' ? 'selected' : '' %>>Only Макарыч</option>
-    <option <%= @barber == 'Best Федорыч' ? 'selected' : '' %>>Best Федорыч</option>
+
+    <% @barbers.each do |item|%>
+       <option <%= @barber == item ['name'] ? 'selected' : '' %>>  <%= item ['name'] %></option>
+
+    <% end %>
+
+
   </select><br/>
   </div>
 

@@ -16,13 +16,20 @@ end
 
 def seed_db db, barbers
 
-	barbers.each do |x|
-		if !is_barber_exists? db, x
-			db.execute 'INSERT INTO Barbers (name) values (?)', [x]
+	barbers.each do |barber|
+		if !is_barber_exists? db, barber
+			db.execute 'INSERT INTO Barbers (name) values (?)', [barber]
 		end
 	end
 
 end
+
+before do
+	db = get_db
+	@barbers = db.execute 'SELECT * FROM Barbers'
+end
+
+
 
 configure do
 
@@ -46,7 +53,7 @@ configure do
 	)'
 
 
-	seed_db db, ['Foo', 'Faa', 'Moo', 'Zoo', 'Faz', 'Maz', 'Kraz']
+	seed_db db, ['Анатолич', 'Петрович', 'Федорович', 'Иваныч', 'Никифоровна', 'Саныч', 'Kraz']
 
   
 end
